@@ -1,14 +1,14 @@
-import { RouteObject } from 'react-router-dom';
-import TestPage from '@/pages/test';
+import { RouteObject } from "react-router-dom";
+import TestPage from "./pages/test";
 
 const Routes: RouteObject[] = [
   {
-    path: '/',
-    element: <div>This is Main Page</div>,
+    path: "/",
+    element: <TestPage />,
   },
   {
-    path: '/test',
-    element: <TestPage />,
+    path: "/test",
+    element: <h1>test</h1>,
   },
 ];
 

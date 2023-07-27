@@ -30,7 +30,7 @@ const useKakaoMap = (latitude: number | null, longitude: number | null) => {
 
       // Map Marker
       const mapMarkerImage = new kakao.maps.MarkerImage(
-        '../src/assets/mapMarkerIcon.svg',
+        '/mapMarkerIcon.svg',
         new kakao.maps.Size(54, 64),
         { offset: new kakao.maps.Point(27, 69) },
       );

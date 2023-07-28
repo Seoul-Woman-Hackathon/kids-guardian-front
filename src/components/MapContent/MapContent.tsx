@@ -4,7 +4,8 @@ import useKakaoMap from '@/utils/useKakaoMap';
 
 const MapContent = () => {
   const { loading, latitude, longitude } = useGeolocation();
-  const mapRef = useKakaoMap(latitude, longitude);
+  // temp
+  const mapRef = useKakaoMap(37.511776, 127.08368172);
 
   if (loading) {
     return <div>로딩 중입니다</div>;

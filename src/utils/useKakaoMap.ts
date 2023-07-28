@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { Dummy, SongpaDummy } from '../../dummydata';
 
 const useKakaoMap = (latitude: number | null, longitude: number | null) => {
   const [mapLoaded, setMapLoaded] = useState(false);
@@ -23,7 +24,7 @@ const useKakaoMap = (latitude: number | null, longitude: number | null) => {
       // Map Option
       const mapOptions = {
         center: new kakao.maps.LatLng(latitude, longitude),
-        level: 1,
+        level: 2,
         scrollwheel: true,
       };
       const map = new kakao.maps.Map(mapContainer.current, mapOptions);
@@ -40,6 +41,24 @@ const useKakaoMap = (latitude: number | null, longitude: number | null) => {
       });
 
       mapMarker.setMap(map);
+
+      // Accident Area Polygon
+      let polygonPaths: any[] = [];
+      const polygonCoords = SongpaDummy.items.item[1].geom_json.coordinates[0];
+      polygonCoords.forEach((coords) => {
+        polygonPaths.push(new kakao.maps.LatLng(coords[1], coords[0]));
+      });
+
+      const polygon = new kakao.maps.Polygon({
+        map: map,
+        path: polygonPaths,
+        strokeWeight: 3, // 선의 두께입니다
+        strokeColor: '#39DE2A', // 선의 색깔입니다
+        strokeOpacity: 0.8, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'solid', // 선의 스타일입니다
+        fillColor: '#A2FF99', // 채우기 색깔입니다
+        fillOpacity: 0.3, // 채우기 불투명도 입니다
+      });
     });
   }, [mapLoaded, latitude, longitude]);
 

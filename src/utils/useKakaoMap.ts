@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Dummy, SongpaDummy } from '../../dummydata';
+import { SongpaDummy } from '../../dummydata';
 
 const useKakaoMap = (latitude: number | null, longitude: number | null) => {
   const [mapLoaded, setMapLoaded] = useState(false);
@@ -50,7 +50,7 @@ const useKakaoMap = (latitude: number | null, longitude: number | null) => {
       });
 
       const polygon = new kakao.maps.Polygon({
-        map: map,
+        //map: map,
         path: polygonPaths,
         strokeWeight: 3, // 선의 두께입니다
         strokeColor: '#39DE2A', // 선의 색깔입니다
@@ -59,6 +59,8 @@ const useKakaoMap = (latitude: number | null, longitude: number | null) => {
         fillColor: '#A2FF99', // 채우기 색깔입니다
         fillOpacity: 0.3, // 채우기 불투명도 입니다
       });
+
+      polygon.setMap(map);
     });
   }, [mapLoaded, latitude, longitude]);
 

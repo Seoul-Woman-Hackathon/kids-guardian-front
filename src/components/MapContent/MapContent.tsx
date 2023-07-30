@@ -3,15 +3,20 @@ import * as styles from './MapContent.style';
 import useKakaoMap from '@/utils/useKakaoMap';
 
 const MapContent = () => {
-  const { loading } = useGeolocation();
-  // temp
-  const mapRef = useKakaoMap(37.511776, 127.08368172);
+  const { latitude, longitude } = useGeolocation();
+  console.log(latitude, longitude);
 
-  if (loading) {
-    return <div>로딩 중입니다</div>;
-  }
+  const { mapContainerRef: mapRef, resetPosition } = useKakaoMap(
+    37.511776,
+    127.08368172,
+  );
 
-  return <styles.MapContainer ref={mapRef} />;
+  return (
+    <>
+      <button onClick={resetPosition}>현위치</button>
+      <styles.MapContainer ref={mapRef} />
+    </>
+  );
 };
 
 export default MapContent;

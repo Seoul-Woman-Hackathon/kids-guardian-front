@@ -97,12 +97,6 @@ const useKakaoMap = (latitude: number | null, longitude: number | null) => {
     return polygon;
   };
 
-  // 6. 현위치로 돌아오기
-  const resetPosition = () => {
-    const moveToCurrentLocation = mapRef.panTo(latitude, longitude);
-    //return <button onClick={moveToCurrentLocation}>현위치로</button>;
-  };
-
   // kakao map load
   useEffect(() => {
     if (!mapLoaded || !latitude || !longitude) return;
@@ -138,7 +132,7 @@ const useKakaoMap = (latitude: number | null, longitude: number | null) => {
     });
   }, [mapLoaded, latitude, longitude, mapLevel]);
 
-  return { mapContainerRef, resetPosition };
+  return mapContainerRef;
 };
 
 export default useKakaoMap;

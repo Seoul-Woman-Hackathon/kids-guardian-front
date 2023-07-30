@@ -8,7 +8,6 @@ const useKakaoMap = (latitude: number | null, longitude: number | null) => {
 
   const kakaoRef: any = useRef(window.kakao);
   const mapRef: any = useRef(null);
-  const clustererRef = useRef(null);
   const mapContainerRef = useRef<HTMLDivElement>(null);
 
   // kakao map script load
@@ -63,7 +62,7 @@ const useKakaoMap = (latitude: number | null, longitude: number | null) => {
       gridSize: 80,
       styles: [clusterStyles],
     });
-    clustererRef.current = clusterer;
+    return clusterer;
   };
 
   // 4. 사고다발지역 중심 좌표 추출 후 Cluster에 추가하기
@@ -105,14 +104,16 @@ const useKakaoMap = (latitude: number | null, longitude: number | null) => {
       kakaoRef.current = window.kakao;
       createMap();
       createUserMarker();
+
+      const accidentClusterer = createClusterer();
       SongpaDummy.items.item.forEach((item) => {
         const accidentAreaCenterCoords = [
           Number(item.la_crd),
           Number(item.lo_crd),
         ];
-        createClusterer();
+
         addMarkerToClusterer(
-          clustererRef.current,
+          accidentClusterer,
           accidentAreaCenterCoords[0],
           accidentAreaCenterCoords[1],
         );
@@ -130,7 +131,7 @@ const useKakaoMap = (latitude: number | null, longitude: number | null) => {
         },
       );
     });
-  }, [mapLoaded, latitude, longitude, mapLevel]);
+  }, [mapLoaded, latitude, longitude, mapLevel, kakaoRef.current]);
 
   return mapContainerRef;
 };

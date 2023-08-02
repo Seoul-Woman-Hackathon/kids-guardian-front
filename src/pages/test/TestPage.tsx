@@ -1,4 +1,5 @@
-import { COLORS } from "../../../styles/constants/colors";
+import COLORS from "@styles/constants/colors";
+
 import styled from "@emotion/styled";
 import ALARM from "../../assets/gifImage/alarm2.gif";
 const TestPage = () => (

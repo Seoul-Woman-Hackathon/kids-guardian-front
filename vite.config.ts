@@ -8,9 +8,9 @@ export default defineConfig({
   plugins: [react(), VitePluginSvgr(), VitePluginHtmlEnv({ compiler: true })],
   resolve: {
     alias: [
-      { find: "@", replacement: "/src" },
-      { find: "@icons", replacement: "/src/assets/icons" },
-      { find: "@styles", replacement: "/styles" },
+      { find: '@', replacement: '/src' },
+      { find: '@icons', replacement: '/src/assets/icons' },
+      { find: '@styles', replacement: '/styles' },
     ],
   },
 });

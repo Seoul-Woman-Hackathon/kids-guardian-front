@@ -1,16 +1,22 @@
-import useGeolocation from '@/utils/useGeolocation';
-import * as styles from './MapContent.style';
+import { ReactComponent as CurrentLocationIcon } from '@/assets/currentLocationIcon.svg';
 import useKakaoMap from '@/utils/useKakaoMap';
 
-const MapContent = () => {
-  const { latitude, longitude } = useGeolocation();
-  console.log(latitude, longitude);
+import * as styles from './MapContent.style';
 
-  const mapContainerRef = useKakaoMap(37.511776, 127.08368172);
+// 샘플 좌표 : 37.4963, 126.9569
+const MapContent = () => {
+  const { mapContainerRef, returnToPosition, isMapReady } = useKakaoMap();
+
+  if (!isMapReady) {
+    return <div>잠시만 기다려주세요! </div>;
+  }
 
   return (
     <>
-      {/*<button onClick={resetPosition}>현위치</button>*/}
+      <styles.ReturnButton onClick={returnToPosition}>
+        <CurrentLocationIcon />
+        <styles.ButtonLabel>현 위치</styles.ButtonLabel>
+      </styles.ReturnButton>
       <styles.MapContainer ref={mapContainerRef} />
     </>
   );

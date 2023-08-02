@@ -16,3 +16,5 @@ export const COLORS = {
   error: "#FF0000",
   accept: "#00AE11",
 };
+
+export default COLORS;

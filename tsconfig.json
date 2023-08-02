@@ -21,13 +21,13 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@icons/*": ["./src/assets/icons/*"],
+      "@styles/*": ["./styles/*"]
     }
   },
-<<<<<<< HEAD
-  "include": ["src", "styles"],
-=======
-  "include": ["src", "global.d.ts"],
->>>>>>> 21e9849f65e6e0bb9596dabea53494c500014830
+
+  "include": ["src", "global.d.ts", "custom.d.ts"],
+
   "references": [{ "path": "./tsconfig.node.json" }]
 }

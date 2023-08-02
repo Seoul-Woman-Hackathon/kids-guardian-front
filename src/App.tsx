@@ -2,15 +2,17 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Global } from "@emotion/react";
 import Routes from "./router";
 import { globalStyles } from "./global.style";
-
+import { RecoilRoot } from "recoil";
 function App() {
   const router = createBrowserRouter(Routes);
 
   return (
     <>
-      <Global styles={globalStyles} />
+      <RecoilRoot>
+        <Global styles={globalStyles} />
 
-      <RouterProvider router={router} />
+        <RouterProvider router={router} />
+      </RecoilRoot>
     </>
   );
 }

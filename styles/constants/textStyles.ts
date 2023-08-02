@@ -1,4 +1,4 @@
-export const TEXT_STYLES = {
+const TEXT_STYLES = {
   H1: {
     fontSize: 48,
     fontWeight: 700,
@@ -71,3 +71,4 @@ export const TEXT_STYLES = {
     fontFamily: "SUITE Variable",
   },
 };
+export default TEXT_STYLES;

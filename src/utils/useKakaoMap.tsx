@@ -8,13 +8,14 @@ import { DongjackDummy } from '@/DongjackDummyData';
 const useKakaoMap = () => {
   const [mapLoaded, setMapLoaded] = useState(false);
   const mapRef = useRef<typeof window.kakao.maps.Map>(null);
+  const userMarkerRef = useRef<typeof window.kakao.maps.Marker>(null);
   const mapContainerRef = useRef<HTMLDivElement>(null);
 
   const { kakao } = window as any;
 
   // 디바이스의 현재 좌표
   const { latitude, longitude, isLoaded: positionLoaded } = useGeolocation();
-
+  console.log(latitude, longitude);
   // 1. Map 생성하기
   const createMap = () => {
     const mapOptions = {
@@ -29,23 +30,18 @@ const useKakaoMap = () => {
   };
 
   // 2. 현재 유저 위치에 표시할 마커 생성하기
-  const updateUserMarker = useCallback(() => {
+  const createUserMarker = useCallback(() => {
     const markerImage = new kakao.maps.MarkerImage(
       '/userMarkerIcon.svg',
       new kakao.maps.Size(54, 64),
       { offset: new kakao.maps.Point(27, 69) },
     );
-    const markerPosition = new kakao.maps.LatLng(latitude, longitude);
-    const marker = new kakao.maps.Marker({
+    userMarkerRef.current = new kakao.maps.Marker({
       map: mapRef.current,
-      position: markerPosition,
+      position: new kakao.maps.LatLng(latitude, longitude),
       image: markerImage,
     });
-
-    mapRef.current.setCenter(markerPosition);
-
-    return marker;
-  }, [latitude, longitude]);
+  }, [mapRef.current]);
 
   // 3. 사고다발지역 중심 좌표을 클러스터링하기 위한 Clusterer 생성하기
   const createClusterer = useCallback(() => {
@@ -123,6 +119,7 @@ const useKakaoMap = () => {
     if (!mapLoaded || !positionLoaded) return;
 
     createMap();
+    createUserMarker();
 
     const clusterer = createClusterer();
     const accidentAreaCenterList: Array<Array<number>> = [];
@@ -146,20 +143,15 @@ const useKakaoMap = () => {
   useEffect(() => {
     if (!mapLoaded || !positionLoaded) return;
 
-    const userMarker = updateUserMarker();
-
-    //alert(latitude, longitude);
+    const newPoistion = new kakao.maps.LatLng(latitude, longitude);
+    mapRef.current.setCenter(newPoistion);
+    userMarkerRef.current.setPosition(newPoistion);
 
     /** 사용자가 폴리곤 내 진입 시 횡단보도 추적 시작  */
     if (isLocatedNearCrossWalk(latitude, longitude)) {
       // 횡단보도 알림
       alert('횡단보도 찾음');
     }
-
-    return () => {
-      // 사용자 좌표가 업데이트 되면 이전에 찍혀 있었던 마커는 제거
-      userMarker.setMap(null);
-    };
   }, [mapLoaded, latitude, longitude]);
 
   return {

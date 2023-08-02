@@ -5,14 +5,12 @@ import { atom } from "recoil";
 type NavListType = keyof typeof NAV_INFO;
 
 export interface IUserNavAtom {
-  isNavBarVisible: boolean;
   activeNavType: NavListType;
 }
 
 export const userNavAtom = atom<IUserNavAtom>({
   key: "userNavAtom",
   default: {
-    isNavBarVisible: true,
     activeNavType: NAV_LIST.HOME,
   },
 });

@@ -10,6 +10,7 @@ import MainHeader from "@/components/Common/Header/MainHeader";
 const MainLayout = ({ children }: PropsWithChildren<{}>) => {
   const activeNavType = useRecoilValue(userNavAtom).activeNavType;
   console.log(activeNavType);
+
   return (
     <>
       <MainHeader />

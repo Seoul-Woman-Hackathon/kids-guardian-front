@@ -1,19 +1,8 @@
 import useGeolocation from "@/utils/useGeolocation";
 import * as styles from "./MapContent.style";
 import useKakaoMap from "@/utils/useKakaoMap";
-import { useSetRecoilState } from "recoil";
-import { IUserNavAtom, userNavAtom } from "@/states/userNavAtom";
-
-import { NAV_LIST } from "../Common/Navbar/navigation";
 
 const MapContent = () => {
-  const setNavAtom = useSetRecoilState(userNavAtom);
-  const navState: IUserNavAtom = {
-    isNavBarVisible: true,
-    activeNavType: NAV_LIST.HOME,
-  };
-  setNavAtom(navState);
-
   const { latitude, longitude } = useGeolocation();
   console.log(latitude, longitude);
 

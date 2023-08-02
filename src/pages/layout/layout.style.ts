@@ -6,4 +6,5 @@ export const NavBarWrapper = styled.div`
   bottom: 0;
   width: 100%;
   text-align: center;
+  z-index: 1000;
 `;

@@ -11,7 +11,7 @@ interface NavItemProps {
 
 const NavItem = ({ type, isFocused }: NavItemProps) => {
   const { url, icon: Icon } = NAV_INFO[type];
-  console.log(type, isFocused);
+
   return (
     <styles.IconContainer>
       <Link to={url}>{isFocused ? <Icon.active /> : <Icon.default />}</Link>

@@ -1,10 +1,10 @@
-import { ReactComponent as HomeOffIcon } from "@icons/Home/Home_off.svg";
-import { ReactComponent as HomeOnIcon } from "@icons/Home/Home_on.svg";
-import { ReactComponent as BadgeOffIcon } from "@icons/Badge/Badge_off.svg";
-import { ReactComponent as BadgeOnIcon } from "@icons/Badge/Badge_on.svg";
-import { ReactComponent as KnowledgeOffIcon } from "@icons/Info/Info_off.svg";
-import { ReactComponent as KnowledgeONIcon } from "@icons/Info/Info_on.svg";
-import { ReactComponent as MyPageIcon } from "@icons/Profile/Profile.svg";
+import { ReactComponent as HomeOffIcon } from "@/assets/icons/Home/Home_off.svg";
+import { ReactComponent as HomeOnIcon } from "@/assets/icons/Home/Home_on.svg";
+import { ReactComponent as BadgeOffIcon } from "@/assets/icons/Badge/Badge_off.svg";
+import { ReactComponent as BadgeOnIcon } from "@/assets/icons/Badge/Badge_on.svg";
+import { ReactComponent as KnowledgeOffIcon } from "@/assets/icons/Info/Info_off.svg";
+import { ReactComponent as KnowledgeONIcon } from "@/assets/icons/Info/Info_on.svg";
+import { ReactComponent as MyPageIcon } from "@/assets/icons/Profile/Profile.svg";
 import { NAV_LIST, NAV_URL_LIST } from "@/components/Common/Navbar/navigation";
 
 interface NavItemType {
@@ -26,7 +26,7 @@ export const NAV_INFO = {
     },
   },
   [NAV_LIST.BADGE]: {
-    label: "뱃지",
+    label: "활동 배지",
     url: NAV_URL_LIST.BADGE,
     icon: {
       active: BadgeOnIcon,

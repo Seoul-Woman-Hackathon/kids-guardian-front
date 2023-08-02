@@ -10,6 +10,7 @@ export const HeaderContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${COLORS.navi_bg};
+  z-index: 10;
 `;
 export const Header = styled.div`
   position: relative;

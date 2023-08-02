@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import COLORS from "@styles/constants/colors";
 
 export const Navigation = styled.div`
-  padding: 2%;
+  padding: 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;

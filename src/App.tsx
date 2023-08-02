@@ -1,7 +1,7 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { Global } from '@emotion/react';
-import Routes from './router';
-import { globalStyles } from './global.style';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Global } from "@emotion/react";
+import Routes from "./router";
+import { globalStyles } from "./global.style";
 
 function App() {
   const router = createBrowserRouter(Routes);
@@ -9,6 +9,7 @@ function App() {
   return (
     <>
       <Global styles={globalStyles} />
+
       <RouterProvider router={router} />
     </>
   );

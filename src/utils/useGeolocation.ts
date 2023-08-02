@@ -18,7 +18,8 @@ interface GeolocationInfoType {
 }
 
 const useGeolocation = () => {
-  const intervalId = useRef<number>(0);
+  //const intervalId = useRef<number>(0);
+  const watchId = useRef<number | null>();
 
   const [geolocationInfo, setGelocationInfo] = useState<GeolocationInfoType>({
     isLoaded: false,
@@ -53,19 +54,35 @@ const useGeolocation = () => {
     console.error(error.message);
   }, []);
 
+  const clearWatch = () => {
+    if (watchId.current) {
+      navigator.geolocation.clearWatch(watchId.current);
+      watchId.current = null;
+    }
+  };
+
   useEffect(() => {
     if (!navigator.geolocation) return;
 
     // 2초마다 한번씩 사용자 위치 업데이트
-    intervalId.current = setInterval(() => {
-      navigator.geolocation.getCurrentPosition(
-        onEventSuccess,
-        onEventError,
-        options,
-      );
-    }, 2000);
+    //intervalId.current = setInterval(() => {
+    //  navigator.geolocation.getCurrentPosition(
+    //    onEventSuccess,
+    //    onEventError,
+    //    options,
+    //  );
+    //}, 2000);
 
-    return () => clearInterval(intervalId.current);
+    watchId.current = navigator.geolocation.watchPosition(
+      onEventSuccess,
+      onEventError,
+      options,
+    );
+
+    //return () => clearInterval(intervalId.current);
+    return () => {
+      clearWatch();
+    };
   }, []);
 
   return geolocationInfo;

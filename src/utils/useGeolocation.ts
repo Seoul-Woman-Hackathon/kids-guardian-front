@@ -6,7 +6,7 @@ const options = {
   /** 캐시에 지정한 위치 정보를 반환할 수 있는 최대 시간 */
   maximumAge: Infinity,
   /** 위치를 반환할 때 소모할 수 있는 최대 시간  */
-  timeout: 2000,
+  timeout: 100000,
 };
 
 interface GeolocationInfoType {

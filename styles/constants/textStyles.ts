@@ -71,3 +71,5 @@ export const TEXT_STYLES = {
     fontFamily: "SUITE Variable",
   },
 };
+
+export default TEXT_STYLES;

@@ -1,6 +1,6 @@
-import useGeolocation from '@/utils/useGeolocation';
-import * as styles from './MapContent.style';
-import useKakaoMap from '@/utils/useKakaoMap';
+import useGeolocation from "@/utils/useGeolocation";
+import * as styles from "./MapContent.style";
+import useKakaoMap from "@/utils/useKakaoMap";
 
 const MapContent = () => {
   const { latitude, longitude } = useGeolocation();

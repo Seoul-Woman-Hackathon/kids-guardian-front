@@ -145,6 +145,8 @@ const useKakaoMap = () => {
 
     const userMarker = createUserMarker();
 
+    console.log('update loc', latitude, longitude);
+
     /** 사용자가 폴리곤 내 진입 시 횡단보도 추적 시작  */
     if (isLocatedNearCrossWalk(latitude, longitude)) {
       // 횡단보도 알림

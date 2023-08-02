@@ -4,9 +4,9 @@ const options = {
   /** 위치 정확도 (true면 더 정확한 위치를 제공하나 응답 속도 저하 및 전력 소모량 증가)*/
   enableHighAccuracy: false,
   /** 캐시에 지정한 위치 정보를 반환할 수 있는 최대 시간 */
-  maximumAge: 0,
+  maximumAge: Infinity,
   /** 위치를 반환할 때 소모할 수 있는 최대 시간  */
-  timeout: 1000,
+  timeout: 3000,
 };
 
 interface GeolocationInfoType {

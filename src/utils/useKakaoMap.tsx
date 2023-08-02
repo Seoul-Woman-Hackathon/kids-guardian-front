@@ -29,17 +29,20 @@ const useKakaoMap = () => {
   };
 
   // 2. 현재 유저 위치에 표시할 마커 생성하기
-  const createUserMarker = useCallback(() => {
+  const updateUserMarker = useCallback(() => {
     const markerImage = new kakao.maps.MarkerImage(
       '/userMarkerIcon.svg',
       new kakao.maps.Size(54, 64),
       { offset: new kakao.maps.Point(27, 69) },
     );
+    const markerPosition = new kakao.maps.LatLng(latitude, longitude);
     const marker = new kakao.maps.Marker({
       map: mapRef.current,
-      position: new kakao.maps.LatLng(latitude, longitude),
+      position: markerPosition,
       image: markerImage,
     });
+
+    mapRef.current.setCenter(markerPosition);
 
     return marker;
   }, [latitude, longitude]);
@@ -143,7 +146,7 @@ const useKakaoMap = () => {
   useEffect(() => {
     if (!mapLoaded || !positionLoaded) return;
 
-    const userMarker = createUserMarker();
+    const userMarker = updateUserMarker();
 
     //alert(latitude, longitude);
 

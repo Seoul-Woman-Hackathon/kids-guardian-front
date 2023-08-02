@@ -1,8 +1,6 @@
 import { NAV_LIST } from "@/components/Common/Navbar/navigation";
 import * as styles from "./NavigationBar.style";
 import NavItem from "./NavItem";
-import { useSetRecoilState } from "recoil";
-import { IUserNavAtom } from "@/states/userNavAtom";
 
 interface NavigationBarProps {
   focusType: keyof typeof NAV_LIST;

@@ -1,19 +1,18 @@
 import { PropsWithChildren } from "react";
 import * as styles from "./layout.style";
 import NavigationBar from "@/components/Common/Navbar";
-import { Outlet } from "react-router-dom";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue } from "recoil";
 import { userNavAtom } from "@/states/userNavAtom";
 import SubHeader from "@/components/Common/Header/SubHeader";
-import TestPage from "../test/TestPage";
-
+import { Outlet } from "react-router-dom";
+//{children || <Outlet />}  -> 이렇게 쓰면 children이 없을때도 Outlet을 사용하여 라우터에 의해 렌더링된 컴포넌트를 표시
 const SubLayout = ({ children }: PropsWithChildren) => {
   const activeNavType = useRecoilValue(userNavAtom).activeNavType;
   console.log(activeNavType);
   return (
     <>
       <SubHeader title={activeNavType} />
-      <TestPage />
+      {children || <Outlet />}
 
       <styles.NavBarWrapper>
         <NavigationBar focusType={activeNavType} />

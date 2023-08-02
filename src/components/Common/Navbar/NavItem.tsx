@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import { NAV_INFO } from "./NavInfo";
 import * as styles from "./NavigationBar.style";
 import { Link } from "react-router-dom";

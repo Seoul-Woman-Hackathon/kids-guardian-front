@@ -1,6 +1,6 @@
 import { NAV_INFO } from "@/components/Common/Navbar/NavInfo";
 import { NAV_LIST } from "@/components/Common/Navbar/navigation";
-import { atom, selector } from "recoil";
+import { atom } from "recoil";
 
 type NavListType = keyof typeof NAV_INFO;
 

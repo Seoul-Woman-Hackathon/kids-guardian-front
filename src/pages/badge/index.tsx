@@ -1,8 +1,8 @@
-import { IUserNavAtom, userNavAtom } from "@/states/userNavAtom";
-import { NAV_LIST } from "@/components/Common/Navbar/navigation";
-import { useSetRecoilState } from "recoil";
-
 const Badge = () => {
-  return <></>;
+  return (
+    <>
+      <h1>Badge입니다</h1>
+    </>
+  );
 };
 export default Badge;

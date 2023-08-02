@@ -3,7 +3,7 @@ import useGeolocation from './useGeolocation';
 import isLocatedNearCrossWalk from './handleCrossWalksData';
 import { clusterStyles, polygonStyles } from '../styles/map.style';
 
-import { DongjackDummy } from '../../DongjackDummydata';
+import { DongjackDummy } from '@/DongjackDummyData';
 
 const useKakaoMap = () => {
   const [mapLoaded, setMapLoaded] = useState(false);
@@ -124,7 +124,7 @@ const useKakaoMap = () => {
     const clusterer = createClusterer();
     const accidentAreaCenterList: Array<Array<number>> = [];
 
-    DongjackDummy.items.item.forEach((item) => {
+    DongjackDummy.items.item.forEach((item: any) => {
       const accidentAreaCenterCoords = [
         Number(item.la_crd),
         Number(item.lo_crd),

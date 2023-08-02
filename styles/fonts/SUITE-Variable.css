@@ -3,3 +3,9 @@
   font-weight: 300 900;
   src: url("./SUITE-Variable.woff2") format("woff2-variations");
 }
+<<<<<<< HEAD
+=======
+:root {
+  --font-primary: "SUITE Variable";
+}
+>>>>>>> e26b318703ae6a7443e89d7d31b0a503a43c16a6

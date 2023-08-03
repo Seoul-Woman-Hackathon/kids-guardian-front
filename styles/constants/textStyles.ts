@@ -1,6 +1,6 @@
 export const TEXT_STYLES = {
   H1: {
-    fontSize: 48,
+    fontSize: 32,
     fontWeight: 700,
     fontFamily: "SUITE Variable",
   },

@@ -18,7 +18,7 @@ export const Title = styled.div`
 export const SubContainer = styled.div`
   display: flex;
   width: 100%;
-  padding: 3%;
+  padding: 20px;
 `;
 
 export const Header = styled.div`

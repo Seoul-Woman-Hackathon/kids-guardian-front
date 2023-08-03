@@ -7,6 +7,7 @@ import MainPage from '@/pages/main';
 import BadgePage from '@/pages/badge';
 import Knowledge from '@/pages/knowledge';
 import MyPage from '@/pages/myPage';
+import TestPage from './pages/test/TestPage';
 
 const Routes: RouteObject[] = [
   {
@@ -37,6 +38,10 @@ const Routes: RouteObject[] = [
         element: <MyPage />,
       },
     ],
+  },
+  {
+    path: 'test',
+    element: <TestPage />,
   },
 ];
 

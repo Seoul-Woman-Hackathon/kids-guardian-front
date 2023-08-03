@@ -35,6 +35,19 @@ export const ImageContainer = styled.div`
   bottom: 20px;
 `;
 
+export const CatImage = styled.img`
+  content: url("src/assets/animation/staticImage/Alarm1.png");
+  z-index: 1;
+  width: 500px;
+  height: 500px;
+`;
+
+export const SpeechImage = styled.img`
+  content: url("src/assets/animation/staticImage/Alarm1Message.svg");
+  width: 600px;
+  height: 250px;
+`;
+
 export const SpeechContainer = styled.div`
   position: absolute;
   bottom: 440px;

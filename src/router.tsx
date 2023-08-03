@@ -8,6 +8,7 @@ import BadgePage from "@/pages/badge";
 import Knowledge from "@/pages/knowledge";
 import MyPage from "@/pages/myPage";
 import AlarmPreview from "./components/AlarmPreview";
+import CrossWalkAlarm from "./components/CrossWalkAlarm/CrossWalkAlarm";
 
 const Routes: RouteObject[] = [
   {
@@ -42,6 +43,10 @@ const Routes: RouteObject[] = [
   {
     path: "/alarmPreview",
     element: <AlarmPreview />,
+  },
+  {
+    path: "/crosswalkAlarm",
+    element: <CrossWalkAlarm />,
   },
 ];
 

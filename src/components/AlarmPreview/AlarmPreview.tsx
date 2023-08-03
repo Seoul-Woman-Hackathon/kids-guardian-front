@@ -5,19 +5,10 @@ const AlarmPreview = () => {
     <>
       <styles.Container>
         <styles.SpeechContainer>
-          <img
-            src="src/assets/animation/staticImage/Alarm1Message.svg"
-            width={600}
-            height={250}
-          ></img>
+          <styles.SpeechImage />
         </styles.SpeechContainer>
         <styles.ImageContainer>
-          <img
-            style={{ zIndex: 1 }}
-            src="src/assets/animation/staticImage/Alarm1.png"
-            width={500}
-            height={500}
-          ></img>
+          <styles.CatImage />
         </styles.ImageContainer>
         <styles.RectContainer>
           <styles.Rect1 />

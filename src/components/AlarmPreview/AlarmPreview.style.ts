@@ -36,14 +36,14 @@ export const ImageContainer = styled.div`
 `;
 
 export const CatImage = styled.img`
-  content: url("src/assets/animation/staticImage/Alarm1.png");
+  content: url("https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/Alarm1.png");
   z-index: 1;
-  width: 500px;
+  width: 600px;
   height: 500px;
 `;
 
 export const SpeechImage = styled.img`
-  content: url("src/assets/animation/staticImage/Alarm1Message.svg");
+  content: url("https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/Alarm1Message.svg");
   width: 600px;
   height: 250px;
 `;

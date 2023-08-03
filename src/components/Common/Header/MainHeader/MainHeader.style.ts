@@ -6,20 +6,19 @@ export const HeaderContainer = styled.div`
   left: 0;
   width: 100%;
   height: 100px; /* Adjust this height according to your design */
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: ${COLORS.navi_bg};
   z-index: 10;
 `;
 export const Header = styled.div`
   position: relative;
   height: 100px;
-`;
-export const LogoContainer = styled.div`
-  width: 100px;
-  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+export const Logo = styled.div`
+  width: 100px;
+  height: 80px;
+  background-image: url("https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/logo.svg");
+  background-repeat: no-repeat;
 `;

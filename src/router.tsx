@@ -7,7 +7,6 @@ import MainPage from "@/pages/main";
 import BadgePage from "@/pages/badge";
 import Knowledge from "@/pages/knowledge";
 import MyPage from "@/pages/myPage";
-import AlarmPage from "./pages/alarm";
 import AlarmPreview from "./components/AlarmPreview";
 
 const Routes: RouteObject[] = [

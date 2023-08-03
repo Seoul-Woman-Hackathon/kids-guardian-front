@@ -1,12 +1,12 @@
 import { RouteObject } from "react-router-dom";
-import Knowledge from "./pages/knowledge";
-import MyPage from "./pages/myPage";
 
-import MainLayout from "./pages/layout/MainLayout";
-import SubLayout from "./pages/layout/SubLayout";
-import TestPage from "./pages/test/TestPage";
-import BadgePage from "./pages/badge";
-import AlarmContent from "./components/AlarmContent";
+import MainLayout from "@/pages/layout/MainLayout";
+import SubLayout from "@/pages/layout/SubLayout";
+
+import MainPage from "@/pages/main";
+import BadgePage from "@/pages/badge";
+import Knowledge from "@/pages/knowledge";
+import MyPage from "@/pages/myPage";
 import AlarmPage from "./pages/alarm";
 
 const Routes: RouteObject[] = [
@@ -17,7 +17,7 @@ const Routes: RouteObject[] = [
     children: [
       {
         index: true,
-        element: <TestPage />,
+        element: <MainPage />,
       },
     ],
   },
@@ -39,14 +39,8 @@ const Routes: RouteObject[] = [
       },
     ],
   },
-
-  {
-    path: "/test",
-    element: <TestPage />,
-  },
   {
     path: "/alarm",
-
     element: <AlarmPage />,
   },
 ];

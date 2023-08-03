@@ -18,7 +18,7 @@ export const RectContainer = styled.div`
   width: 100%;
 `;
 export const Rect = styled.div`
-  height: 180px;
+  height: 200px;
   background-color: ${COLORS.grayscale.gray400};
 `;
 
@@ -26,8 +26,8 @@ export const Image = styled.img`
   position: absolute;
   z-index: 1;
   bottom: 0px;
-  content: url("src/assets/animation/gifImage/alarm2.gif");
-  width: 100%;
+  content: url("https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/alarm2.gif");
+  /* width: 100%; */
   height: 80%;
 `;
 
@@ -39,7 +39,7 @@ export const Message = styled.div`
   border-radius: 12px;
   background-color: ${COLORS.navi_bg};
   width: 80%;
-  height: 90px;
+  height: 10%;
   top: 10%;
   z-index: 10;
 `;

@@ -1,4 +1,4 @@
-import AlarmPreview from "./AlarmPreview";
+import AlarmPreview from "./AlarmPreview/AlarmPreview";
 
 const AlarmContent = () => {
   return (

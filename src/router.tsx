@@ -6,6 +6,8 @@ import MainLayout from "./pages/layout/MainLayout";
 import SubLayout from "./pages/layout/SubLayout";
 import TestPage from "./pages/test/TestPage";
 import BadgePage from "./pages/badge";
+import AlarmContent from "./components/AlarmContent";
+import AlarmPage from "./pages/alarm";
 
 const Routes: RouteObject[] = [
   {
@@ -41,6 +43,11 @@ const Routes: RouteObject[] = [
   {
     path: "/test",
     element: <TestPage />,
+  },
+  {
+    path: "/alarm",
+
+    element: <AlarmPage />,
   },
 ];
 

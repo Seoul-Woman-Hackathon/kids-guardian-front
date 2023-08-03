@@ -1,11 +1,5 @@
-import AlarmPreview from "./AlarmPreview/AlarmPreview";
-
 const AlarmContent = () => {
-  return (
-    <>
-      <AlarmPreview />
-    </>
-  );
+  return <></>;
 };
 
 export default AlarmContent;

@@ -1,46 +1,42 @@
-import { RouteObject } from "react-router-dom";
-import Knowledge from "./pages/knowledge";
-import MyPage from "./pages/myPage";
+import { RouteObject } from 'react-router-dom';
 
-import MainLayout from "./pages/layout/MainLayout";
-import SubLayout from "./pages/layout/SubLayout";
-import TestPage from "./pages/test/TestPage";
-import BadgePage from "./pages/badge";
+import MainLayout from '@/pages/layout/MainLayout';
+import SubLayout from '@/pages/layout/SubLayout';
+
+import MainPage from '@/pages/main';
+import BadgePage from '@/pages/badge';
+import Knowledge from '@/pages/knowledge';
+import MyPage from '@/pages/myPage';
 
 const Routes: RouteObject[] = [
   {
-    path: "/",
+    path: '/',
 
     element: <MainLayout />,
     children: [
       {
         index: true,
-        element: <TestPage />,
+        element: <MainPage />,
       },
     ],
   },
   {
-    path: "/",
+    path: '/',
     element: <SubLayout />,
     children: [
       {
-        path: "badge",
+        path: 'badge',
         element: <BadgePage />,
       },
       {
-        path: "knowledge",
+        path: 'knowledge',
         element: <Knowledge />,
       },
       {
-        path: "myPage",
+        path: 'myPage',
         element: <MyPage />,
       },
     ],
-  },
-
-  {
-    path: "/test",
-    element: <TestPage />,
   },
 ];
 

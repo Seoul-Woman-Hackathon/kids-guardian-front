@@ -1,22 +1,16 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import svgr from "vite-plugin-svgr";
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import VitePluginSvgr from 'vite-plugin-svgr';
+import VitePluginHtmlEnv from 'vite-plugin-html-env';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    svgr({
-      svgrOptions: {
-        // svgr options
-      },
-    }),
-  ],
+  plugins: [react(), VitePluginSvgr(), VitePluginHtmlEnv({ compiler: true })],
   resolve: {
     alias: [
-      { find: "@", replacement: "/src" },
-      { find: "@icons", replacement: "/src/assets/icons" },
-      { find: "@styles", replacement: "/styles" },
+      { find: '@', replacement: '/src' },
+      { find: '@icons', replacement: '/src/assets/icons' },
+      { find: '@styles', replacement: '/styles' },
     ],
   },
 });

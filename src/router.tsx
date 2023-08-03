@@ -1,18 +1,17 @@
-import { RouteObject } from "react-router-dom";
+import { RouteObject } from 'react-router-dom';
 
-import MainLayout from "@/pages/layout/MainLayout";
-import SubLayout from "@/pages/layout/SubLayout";
+import MainLayout from '@/pages/layout/MainLayout';
+import SubLayout from '@/pages/layout/SubLayout';
 
-import MainPage from "@/pages/main";
-import BadgePage from "@/pages/badge";
-import Knowledge from "@/pages/knowledge";
-import MyPage from "@/pages/myPage";
-import AlarmPreview from "./components/AlarmPreview";
-import CrossWalkAlarm from "./components/CrossWalkAlarm/CrossWalkAlarm";
+import MainPage from '@/pages/main';
+import BadgePage from '@/pages/badge';
+import Knowledge from '@/pages/knowledge';
+import MyPage from '@/pages/myPage';
+import TestPage from './pages/test/TestPage';
 
 const Routes: RouteObject[] = [
   {
-    path: "/",
+    path: '/',
 
     element: <MainLayout />,
     children: [
@@ -23,30 +22,26 @@ const Routes: RouteObject[] = [
     ],
   },
   {
-    path: "/",
+    path: '/',
     element: <SubLayout />,
     children: [
       {
-        path: "badge",
+        path: 'badge',
         element: <BadgePage />,
       },
       {
-        path: "knowledge",
+        path: 'knowledge',
         element: <Knowledge />,
       },
       {
-        path: "myPage",
+        path: 'myPage',
         element: <MyPage />,
       },
     ],
   },
   {
-    path: "/alarmPreview",
-    element: <AlarmPreview />,
-  },
-  {
-    path: "/crosswalkAlarm",
-    element: <CrossWalkAlarm />,
+    path: 'test',
+    element: <TestPage />,
   },
 ];
 

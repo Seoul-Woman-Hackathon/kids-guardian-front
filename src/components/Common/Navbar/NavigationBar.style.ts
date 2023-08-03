@@ -2,7 +2,8 @@ import styled from "@emotion/styled";
 import COLORS from "@styles/constants/colors";
 
 export const Navigation = styled.div`
-  padding: 5%;
+  height: 100px;
+  padding: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,5 +11,5 @@ export const Navigation = styled.div`
 `;
 
 export const IconContainer = styled.div`
-  filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.1));
+  /* filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.1)); */
 `;

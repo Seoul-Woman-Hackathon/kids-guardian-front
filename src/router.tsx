@@ -8,6 +8,8 @@ import BadgePage from '@/pages/badge';
 import Knowledge from '@/pages/knowledge';
 import MyPage from '@/pages/myPage';
 import TestPage from './pages/test/TestPage';
+import AlarmPreview from './components/AlarmPreview';
+import CrossWalkAlarm from './components/CrossWalkAlarm';
 
 const Routes: RouteObject[] = [
   {
@@ -42,6 +44,14 @@ const Routes: RouteObject[] = [
   {
     path: 'test',
     element: <TestPage />,
+  },
+  {
+    path: '/alarmPreview',
+    element: <AlarmPreview />,
+  },
+  {
+    path: '/crosswalkAlarm',
+    element: <CrossWalkAlarm />,
   },
 ];
 

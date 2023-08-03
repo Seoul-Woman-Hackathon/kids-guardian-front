@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const NavBarWrapper = styled.div`
   position: fixed;
@@ -6,5 +6,5 @@ export const NavBarWrapper = styled.div`
   bottom: 0;
   width: 100%;
   text-align: center;
-  z-index: 1000;
+  z-index: 10;
 `;

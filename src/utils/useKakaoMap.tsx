@@ -20,7 +20,7 @@ const useKakaoMap = () => {
   const createMap = () => {
     const mapOptions = {
       center: new kakao.maps.LatLng(latitude, longitude),
-      level: 4,
+      level: 2,
       scrollwheel: true,
     };
     const map = new kakao.maps.Map(mapContainerRef.current, mapOptions);
@@ -89,6 +89,7 @@ const useKakaoMap = () => {
         path: polygonPaths,
         ...polygonStyles,
       });
+      polygon.setMap(mapRef.current);
 
       return polygon;
     },

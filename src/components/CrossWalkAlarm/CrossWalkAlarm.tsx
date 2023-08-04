@@ -3,9 +3,13 @@ import * as styles from "./CrossWalkAlarm.style";
 import CrossWalkLockAlarm from "../CrossWalkLockAlarm";
 
 const CrossWalkAlarm = () => {
-  const [onClick, setOnClick] = useState(true);
+  const [onClick, setOnClick] = useState(false);
+  console.log(onClick);
+  const onTouchStart = () => {
+    setOnClick(true);
+  };
   return (
-    <styles.Container>
+    <styles.Container onTouchStart={onTouchStart}>
       <styles.Message>
         <styles.MessageText>손을 번쩍 들어!</styles.MessageText>
       </styles.Message>

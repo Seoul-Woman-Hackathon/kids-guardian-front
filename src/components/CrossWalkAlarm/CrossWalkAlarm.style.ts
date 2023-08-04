@@ -21,7 +21,6 @@ export const Rect = styled.div`
   height: 200px;
   background-color: ${COLORS.grayscale.gray400};
 `;
-
 export const Image = styled.img`
   position: absolute;
   z-index: 1;
@@ -30,7 +29,6 @@ export const Image = styled.img`
   /* width: 100%; */
   height: 80%;
 `;
-
 export const Message = styled.div`
   display: flex;
   justify-content: center;

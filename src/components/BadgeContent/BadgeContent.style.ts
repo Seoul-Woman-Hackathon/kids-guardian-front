@@ -84,9 +84,7 @@ export const BadgeTitle = styled.div`
   margin-top: 10px;
 `;
 
-export const BadgeImage = styled.img(
-  ({ src, idx }: { src: string; idx: number }) => ({
-    ...BADGE_STYLE[idx],
-    position: 'absolute',
-  }),
-);
+export const BadgeImage = styled.img(({ idx }: { idx: number }) => ({
+  ...BADGE_STYLE[idx],
+  position: 'absolute',
+}));

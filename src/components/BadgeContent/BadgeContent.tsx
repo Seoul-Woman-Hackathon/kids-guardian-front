@@ -4,6 +4,7 @@ import { BADGE_INFO } from './badgeInfo';
 import * as styles from './BadgeContent.style';
 
 const BadgeContent = ({ count }: { count: number }) => {
+  console.log(count);
   const [dressedBadge, setDressedBadge] = useState<number[]>([]);
 
   const onClickBadge = (idx: number) => {

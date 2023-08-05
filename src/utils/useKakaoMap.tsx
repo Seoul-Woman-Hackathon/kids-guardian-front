@@ -149,6 +149,7 @@ const useKakaoMap = () => {
     userMarkerRef.current.setPosition(newPoistion);
 
     const res = checkUserInPolygon(latitude, longitude);
+    console.log(res);
 
     /** 사용자가 폴리곤 내 진입 시 횡단보도 추적 시작  */
     if (isLocatedNearCrossWalk(latitude, longitude)) {

@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { getAsync } from '.';
 
 //export async function getSeoulPolygonData() {

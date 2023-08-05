@@ -26,7 +26,7 @@ const AlarmFinishContent = ({ count = 4 }: AlarmFinishContentProps) => {
     ],
   };
 
-  const BadgeIcon = BADGE_INFO[level < 0 ? 0 : level].icon;
+  const BadgeImage = BADGE_INFO[level < 0 ? 0 : level].image;
 
   return (
     <styles.Wrapper>
@@ -43,7 +43,9 @@ const AlarmFinishContent = ({ count = 4 }: AlarmFinishContentProps) => {
       </styles.TitleWrapper>
       {mode === 'badge' ? (
         <styles.BadgeContainer>
-          <styles.BadgeIconWrapper>{<BadgeIcon />}</styles.BadgeIconWrapper>
+          <styles.BadgeIconWrapper>
+            <img src={BadgeImage} />
+          </styles.BadgeIconWrapper>
         </styles.BadgeContainer>
       ) : (
         <styles.NoBadgeContainer>

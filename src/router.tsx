@@ -5,19 +5,14 @@ import SubLayout from "@/pages/layout/SubLayout";
 
 import MainPage from "@/pages/main";
 import BadgePage from "@/pages/badge";
-import Knowledge from "@/pages/knowledge";
 import MyPage from "@/pages/myPage";
 import AlarmPreview from "./components/AlarmPreview";
 import CrossWalkAlarm from "./components/CrossWalkAlarm/CrossWalkAlarm";
 import CrossWalkLockAlarm from "./components/CrossWalkLockAlarm";
 import TestPage from "./pages/test/TestPage";
-<<<<<<< HEAD
-import Onboarding from "./components/Onboarding/Onboarding";
-=======
 
 import Onboarding from "./components/Onboarding/Onboarding";
-
->>>>>>> 5b9da2ac8e3e9f92fac931c521f6097ba554437a
+import KnowledgePage from "./pages/knowledge";
 
 const Routes: RouteObject[] = [
   {
@@ -41,11 +36,15 @@ const Routes: RouteObject[] = [
       },
       {
         path: "knowledge",
-        element: <Knowledge />,
+        element: <KnowledgePage />,
       },
       {
         path: "myPage",
         element: <MyPage />,
+      },
+
+      {
+        path: "/knowledge/:id",
       },
     ],
   },

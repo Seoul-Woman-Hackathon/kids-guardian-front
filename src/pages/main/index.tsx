@@ -1,3 +1,4 @@
+
 import MapContent from "@/components/MapContent";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { userNavAtom } from "@/states/userNavAtom";
@@ -10,6 +11,7 @@ import { useEffect } from "react";
 const MainPage = () => {
   const onboarding = useRecoilValue(onboardingAtom);
   const navigate = useNavigate();
+  
   const setNavAtom = useSetRecoilState(userNavAtom);
   const navState: IUserNavAtom = {
     activeNavType: NAV_LIST.HOME,

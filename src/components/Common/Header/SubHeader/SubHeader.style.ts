@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
-import COLORS from "@styles/constants/colors";
-import TEXT_STYLES from "@styles/constants/textStyles";
+import styled from '@emotion/styled';
+import COLORS from '@styles/constants/colors';
+import TEXT_STYLES from '@styles/constants/textStyles';
 
 export const BackArrowContainer = styled.div`
   width: 24px;
@@ -26,8 +26,9 @@ export const Header = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100px; /* Adjust this height according to your design */
+  /*height: 100px; Adjust this height according to your design*/
   display: flex;
   align-items: center;
   background-color: ${COLORS.navi_bg};
+  box-shadow: 0px -2px 12px 0px rgba(0, 0, 0, 0.11);
 `;

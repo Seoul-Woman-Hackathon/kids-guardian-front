@@ -44,6 +44,6 @@ export const LockText = styled.div`
 export const LockImage = styled.img`
   width: 100px;
   height: 154px;
-  content: url("/src/assets/icons/Lock/Lock.svg");
+  content: url("https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/Lock.svg");
   z-index: 2;
 `;

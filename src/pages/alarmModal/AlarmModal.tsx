@@ -29,9 +29,7 @@ const AlarmModal = () => {
   }, [in_accident_region]);
 
   useEffect(() => {
-    if (isNearCrossWalk) {
-      setIsShowCrossWalkAlarm(true);
-    }
+    setIsShowCrossWalkAlarm(isNearCrossWalk);
   }, [isNearCrossWalk]);
 
   return isShowAlarmPreview ? (

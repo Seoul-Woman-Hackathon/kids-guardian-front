@@ -10,6 +10,7 @@ import { SeoulPolygonData } from '@/SeoulData';
 import { checkUserInPolygon } from '@/apis/map';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { accidentRegionAtom, crossWalkAtom } from '@/states/accidentRegionAtom';
+import useDummyMove from './useDummyMove';
 
 const useKakaoMap = () => {
   const [mapLoaded, setMapLoaded] = useState(false);
@@ -26,9 +27,9 @@ const useKakaoMap = () => {
   const { kakao } = window as any;
 
   // 디바이스의 현재 좌표
-  const { latitude, longitude, isLoaded: positionLoaded } = useGeolocation();
-  //const { isLoaded: positionLoaded } = useGeolocation();
-  //const [latitude, longitude] = [37.4979462867, 126.9226290334];
+  //const { latitude, longitude, isLoaded: positionLoaded } = useGeolocation();
+  const { isLoaded: positionLoaded } = useGeolocation();
+  const { latitude, longitude } = useDummyMove();
 
   // 1. Map 생성하기
   const createMap = () => {
@@ -181,16 +182,14 @@ const useKakaoMap = () => {
     let targetLat = null;
     let targetLon = null;
     if (in_accident_region) {
-      const [nearByUser, targetCrossWalk]: any = isLocatedNearCrossWalk(
-        latitude,
-        longitude,
-        traffic_lights,
-      );
+      const res = isLocatedNearCrossWalk(latitude, longitude, traffic_lights);
 
-      if (nearByUser) {
+      if (res?.nearByUser) {
         setCrossWalkAtom({ isNearCrossWalk: true });
-        targetLat = targetCrossWalk[0];
-        targetLon = targetCrossWalk[1];
+        targetLat = res.targetCrossWalk[0];
+        targetLon = res.targetCrossWalk[1];
+      } else {
+        setCrossWalkAtom({ isNearCrossWalk: false });
       }
     }
 

@@ -7,6 +7,8 @@ interface KnowlegeImageProps {
 }
 
 export const Container = styled.div`
+  margin-top: 100px;
+  margin-bottom: 140px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;

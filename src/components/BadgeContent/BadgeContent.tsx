@@ -21,17 +21,14 @@ const BadgeContent = ({ count }: { count: number }) => {
         {dressedBadge.map((idx: number) => (
           <styles.BadgeImage src={BADGE_INFO[idx].image} idx={idx} />
         ))}
-<<<<<<< HEAD
-        <img src="https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/Cat.svg" />
-=======
+
         <img
           src={
             dressedBadge.includes(3)
-              ? 'https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/turtleCat.svg'
-              : 'https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/Cat.svg'
+              ? "https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/turtleCat.svg"
+              : "https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/Cat.svg"
           }
         />
->>>>>>> 03356f82b34e140020bb31ab4fe56778371269a0
       </styles.CharacterContainer>
       <styles.Line />
       <styles.SubTitle>내가 받은 배지</styles.SubTitle>

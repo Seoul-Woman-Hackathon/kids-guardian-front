@@ -16,6 +16,7 @@ export const KnowlegeButtonContainer = styled.div`
   &:hover {
     background-color: ${COLORS.main.secondary};
   }
+  transition: background 0.3s ease-in-out;
 `;
 
 export const KnowledgeButtonText = styled.div`

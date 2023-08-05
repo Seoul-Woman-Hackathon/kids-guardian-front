@@ -13,6 +13,7 @@ import TestPage from "./pages/test/TestPage";
 
 import Onboarding from "./components/Onboarding/Onboarding";
 import KnowledgePage from "./pages/knowledge";
+import KnowledgeDetail from "./components/Knowledge/KnowledgeDetail";
 
 const Routes: RouteObject[] = [
   {
@@ -45,6 +46,7 @@ const Routes: RouteObject[] = [
 
       {
         path: "/knowledge/:id",
+        element: <KnowledgeDetail />,
       },
     ],
   },

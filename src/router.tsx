@@ -14,7 +14,6 @@ import TestPage from "./pages/test/TestPage";
 
 import Onboarding from "./components/Onboarding/Onboarding";
 
-
 const Routes: RouteObject[] = [
   {
     path: "/",
@@ -58,7 +57,7 @@ const Routes: RouteObject[] = [
     element: <CrossWalkAlarm />,
   },
   {
-    path: "/crosswalkLock",
+    path: '/crosswalkLock',
     element: <CrossWalkLockAlarm />,
   },
   {

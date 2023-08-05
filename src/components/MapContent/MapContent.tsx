@@ -1,10 +1,9 @@
 import { ReactComponent as CurrentLocationIcon } from '@/assets/currentLocationIcon.svg';
+import Loading from './Loading';
 import useKakaoMap from '@/utils/useKakaoMap';
 
 import * as styles from './MapContent.style';
-import Loading from './Loading';
 
-// 샘플 좌표 : 37.4963, 126.9569
 const MapContent = () => {
   const { mapContainerRef, returnToPosition, isMapReady } = useKakaoMap();
 

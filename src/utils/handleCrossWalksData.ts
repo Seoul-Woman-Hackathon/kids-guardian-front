@@ -33,7 +33,7 @@ export const isLocatedNearCrossWalk = (
       return;
     }
 
-    return { nearByUser, targetCrossWalk };
+    return [nearByUser, targetCrossWalk];
   }
 };
 

@@ -162,11 +162,12 @@ const useKakaoMap = () => {
 
     // 폴리곤 내부에 유저가 진입했는지 실시간으로 체크
     async function monitorPolygonData() {
-      const res = await checkUserInPolygon(latitude, longitude);
+      const res: any = await checkUserInPolygon(latitude, longitude);
 
       if (!res.isSuccess) return;
 
-      const { in_accident_region, traffic_lights }: any = res.result;
+      const in_accident_region = res.result.in_accident_region;
+      const traffic_lights = res.result.traffic_lights;
 
       setAccidentRegionAtom({
         in_accident_region,
@@ -180,7 +181,7 @@ const useKakaoMap = () => {
     let targetLat = null;
     let targetLon = null;
     if (in_accident_region) {
-      const { nearByUser, targetCrossWalk }: any = isLocatedNearCrossWalk(
+      const [nearByUser, targetCrossWalk]: any = isLocatedNearCrossWalk(
         latitude,
         longitude,
         traffic_lights,

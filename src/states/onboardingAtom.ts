@@ -6,7 +6,7 @@ interface onboardingAtom {
 }
 
 const { persistAtom } = recoilPersist({
-  key: "localStorage", //원하는 key 값 입력
+  key: "onboardingLocalStorage", //원하는 key 값 입력
   storage: localStorage,
 });
 

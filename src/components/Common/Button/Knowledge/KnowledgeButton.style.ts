@@ -11,6 +11,12 @@ export const KnowlegeButtonContainer = styled.div`
   border-radius: 8px;
   background-color: ${COLORS.main.primary};
   z-index: 10;
+  width: 100px;
+  cursor: pointer;
+  &:hover {
+    background-color: ${COLORS.main.secondary};
+  }
+  transition: background 0.3s ease-in-out;
 `;
 
 export const KnowledgeButtonText = styled.div`

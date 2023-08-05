@@ -3,7 +3,8 @@ import useGeolocation from './useGeolocation';
 import isLocatedNearCrossWalk from './handleCrossWalksData';
 import { clusterStyles, polygonStyles } from '../styles/map.style';
 
-import { DongjackDummy } from '@/DongjackDummyData';
+import { SeoulPolygonData } from '@/SeoulData';
+import { checkUserInPolygon } from '@/apis/map';
 
 const useKakaoMap = () => {
   const [mapLoaded, setMapLoaded] = useState(false);
@@ -15,7 +16,8 @@ const useKakaoMap = () => {
 
   // 디바이스의 현재 좌표
   const { latitude, longitude, isLoaded: positionLoaded } = useGeolocation();
-  console.log(latitude, longitude);
+  //const [latitude, longitude] = [37.4979462867, 126.9226290334];
+
   // 1. Map 생성하기
   const createMap = () => {
     const mapOptions = {
@@ -125,14 +127,12 @@ const useKakaoMap = () => {
     const clusterer = createClusterer();
     const accidentAreaCenterList: Array<Array<number>> = [];
 
-    DongjackDummy.items.item.forEach((item: any) => {
-      const accidentAreaCenterCoords = [
-        Number(item.la_crd),
-        Number(item.lo_crd),
-      ];
+    SeoulPolygonData.centerCoords.forEach((item: any) => {
+      const accidentAreaCenterCoords = [item[0], item[1]];
       accidentAreaCenterList.push(accidentAreaCenterCoords);
+    });
 
-      const polygonCoords = item.geom_json.coordinates[0];
+    SeoulPolygonData.polygons.forEach((polygonCoords) => {
       const polygon = createPolygon(polygonCoords);
       handlePolygonVisible(polygon);
     });
@@ -147,6 +147,8 @@ const useKakaoMap = () => {
     const newPoistion = new kakao.maps.LatLng(latitude, longitude);
     mapRef.current.setCenter(newPoistion);
     userMarkerRef.current.setPosition(newPoistion);
+
+    const res = checkUserInPolygon(latitude, longitude);
 
     /** 사용자가 폴리곤 내 진입 시 횡단보도 추적 시작  */
     if (isLocatedNearCrossWalk(latitude, longitude)) {

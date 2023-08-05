@@ -16,8 +16,6 @@ const coords = [
   [37.50537, 126.92443],
   [37.50527, 126.92453],
   [37.50503, 126.92477],
-  [37.50511, 126.9247],
-  [37.50521, 126.9245],
 ];
 
 const useDummyMove = () => {
@@ -25,6 +23,9 @@ const useDummyMove = () => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
+      if (coordsIndex === coords.length - 1) {
+        setCoordsIndex(0);
+      }
       setCoordsIndex((prev) => prev + 1);
     }, 3000);
 

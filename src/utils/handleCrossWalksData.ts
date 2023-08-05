@@ -2,15 +2,6 @@ import Flatten from '@flatten-js/core';
 
 const { Point } = Flatten;
 
-const sampleData = [
-  //  [37.6707984, 128.7131173],
-  //  [37.6708264, 128.7131173],
-  //  [37.6708006, 128.7131266],
-  //  [37.6708035, 128.7131369],
-  //  [37.6708025, 128.7131533],
-  [37.4963, 126.9569],
-];
-
 const calculateDistance = (
   lat1: number,
   lon1: number,
@@ -18,23 +9,52 @@ const calculateDistance = (
   lon2: number,
 ) => new Point(lon1, lat1).distanceTo(new Point(lon2, lat2))[0];
 
-const isLocatedNearCrossWalk = (latitude: any, longitude: any) => {
+export const isLocatedNearCrossWalk = (
+  latitude: any,
+  longitude: any,
+  crossWalks: any[],
+) => {
   let nearByUser = false;
-  for (let i = 0; i < sampleData.length; i++) {
+  let targetCrossWalk = [null, null];
+
+  for (let i = 0; i < crossWalks.length; i++) {
     const dist = calculateDistance(
       latitude,
       longitude,
-      sampleData[i][0],
-      sampleData[i][1],
+      crossWalks[i].latitude,
+      crossWalks[i].longitude,
     );
 
     if (dist <= 20) {
       nearByUser = true;
+      (targetCrossWalk[0] = crossWalks[i].latitude),
+        (targetCrossWalk[1] = crossWalks[i].longitude);
+
       return;
     }
 
-    return nearByUser;
+    return { nearByUser, targetCrossWalk };
   }
 };
 
-export default isLocatedNearCrossWalk;
+export const isFarFromCrossWalk = (
+  latitude: any,
+  longitude: any,
+  crossWalkLatitude: number,
+  crossWalkLongitude: number,
+) => {
+  let isFar = false;
+
+  const dist = calculateDistance(
+    latitude,
+    longitude,
+    crossWalkLatitude,
+    crossWalkLongitude,
+  );
+
+  if (dist > 20) {
+    isFar = true;
+  }
+
+  return isFar;
+};

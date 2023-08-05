@@ -1,10 +1,15 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import useGeolocation from './useGeolocation';
-import isLocatedNearCrossWalk from './handleCrossWalksData';
+import {
+  isFarFromCrossWalk,
+  isLocatedNearCrossWalk,
+} from './handleCrossWalksData';
 import { clusterStyles, polygonStyles } from '../styles/map.style';
 
 import { SeoulPolygonData } from '@/SeoulData';
 import { checkUserInPolygon } from '@/apis/map';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { accidentRegionAtom, crossWalkAtom } from '@/states/accidentRegionAtom';
 
 const useKakaoMap = () => {
   const [mapLoaded, setMapLoaded] = useState(false);
@@ -12,11 +17,18 @@ const useKakaoMap = () => {
   const userMarkerRef = useRef<typeof window.kakao.maps.Marker>(null);
   const mapContainerRef = useRef<HTMLDivElement>(null);
 
+  const { in_accident_region, traffic_lights } =
+    useRecoilValue(accidentRegionAtom);
+  const { isNearCrossWalk } = useRecoilValue(crossWalkAtom);
+  const setAccidentRegionAtom = useSetRecoilState(accidentRegionAtom);
+  const setCrossWalkAtom = useSetRecoilState(crossWalkAtom);
+
   const { kakao } = window as any;
 
   // 디바이스의 현재 좌표
-  const { latitude, longitude, isLoaded: positionLoaded } = useGeolocation();
-  //const [latitude, longitude] = [37.4979462867, 126.9226290334];
+  //const { latitude, longitude, isLoaded: positionLoaded } = useGeolocation();
+  const { isLoaded: positionLoaded } = useGeolocation();
+  const [latitude, longitude] = [37.4979462867, 126.9226290334];
 
   // 1. Map 생성하기
   const createMap = () => {
@@ -148,13 +160,44 @@ const useKakaoMap = () => {
     mapRef.current.setCenter(newPoistion);
     userMarkerRef.current.setPosition(newPoistion);
 
-    const res = checkUserInPolygon(latitude, longitude);
-    console.log(res);
+    // 폴리곤 내부에 유저가 진입했는지 실시간으로 체크
+    async function monitorPolygonData() {
+      const res = await checkUserInPolygon(latitude, longitude);
 
-    /** 사용자가 폴리곤 내 진입 시 횡단보도 추적 시작  */
-    if (isLocatedNearCrossWalk(latitude, longitude)) {
-      // 횡단보도 알림
-      alert('횡단보도 찾음');
+      if (!res.isSuccess) return;
+
+      const { in_accident_region, traffic_lights }: any = res.result;
+
+      setAccidentRegionAtom({
+        in_accident_region,
+        traffic_lights,
+      });
+    }
+
+    monitorPolygonData();
+
+    // 사용자가 폴리곤 내 진입 시 횡단보도 추적 시작
+    let targetLat = null;
+    let targetLon = null;
+    if (in_accident_region) {
+      const { nearByUser, targetCrossWalk }: any = isLocatedNearCrossWalk(
+        latitude,
+        longitude,
+        traffic_lights,
+      );
+
+      if (nearByUser) {
+        setCrossWalkAtom({ isNearCrossWalk: true });
+        targetLat = targetCrossWalk[0];
+        targetLon = targetCrossWalk[1];
+      }
+    }
+
+    // 횡단보도 근처에 있다면 다시 멀어질때까지 추적
+    if (isNearCrossWalk && targetLat && targetLon) {
+      if (isFarFromCrossWalk(latitude, longitude, targetLat, targetLon)) {
+        setCrossWalkAtom({ isNearCrossWalk: false });
+      }
     }
   }, [mapLoaded, latitude, longitude]);
 

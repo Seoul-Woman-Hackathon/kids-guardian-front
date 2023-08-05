@@ -11,11 +11,13 @@ const CrossWalkAlarm = () => {
   const onTouchStart = () => {
     setOnClick(true);
   };
+
   //   const onTouchEnd = () => {
   //     setTimeout(() => {
   //       setOnClick(false);
   //     }, 800);
   //   };
+
   return (
     <styles.Container onTouchStart={onTouchStart}>
       <styles.Message>
@@ -25,6 +27,7 @@ const CrossWalkAlarm = () => {
       <styles.RectContainer>
         <styles.Rect />
       </styles.RectContainer>
+
       {onClick && accidentRange.in_accident_region ? (
         <CrossWalkLockAlarm />
       ) : null}

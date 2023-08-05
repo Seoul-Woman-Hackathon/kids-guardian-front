@@ -11,7 +11,13 @@ import AlarmPreview from "./components/AlarmPreview";
 import CrossWalkAlarm from "./components/CrossWalkAlarm/CrossWalkAlarm";
 import CrossWalkLockAlarm from "./components/CrossWalkLockAlarm";
 import TestPage from "./pages/test/TestPage";
+<<<<<<< HEAD
 import Onboarding from "./components/Onboarding/Onboarding";
+=======
+
+import Onboarding from "./components/Onboarding/Onboarding";
+
+>>>>>>> 5b9da2ac8e3e9f92fac931c521f6097ba554437a
 
 const Routes: RouteObject[] = [
   {

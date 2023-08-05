@@ -1,15 +1,10 @@
 import MapContent from "@/components/MapContent";
-import {
-  useGetRecoilValueInfo_UNSTABLE,
-  useRecoilValue,
-  useSetRecoilState,
-} from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { userNavAtom } from "@/states/userNavAtom";
 import { IUserNavAtom } from "@/states/userNavAtom";
 import { NAV_LIST } from "@/components/Common/Navbar/navigation";
 import { onboardingAtom } from "@/states/onboardingAtom";
-import Onboarding from "@/components/Onboarding/Onboarding";
-import { redirect, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 const MainPage = () => {

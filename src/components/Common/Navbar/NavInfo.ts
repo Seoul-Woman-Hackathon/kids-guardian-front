@@ -1,11 +1,11 @@
-import { ReactComponent as HomeOffIcon } from "@/assets/icons/Home/Home_off.svg";
-import { ReactComponent as HomeOnIcon } from "@/assets/icons/Home/Home_on.svg";
-import { ReactComponent as BadgeOffIcon } from "@/assets/icons/Badge/Badge_off.svg";
-import { ReactComponent as BadgeOnIcon } from "@/assets/icons/Badge/Badge_on.svg";
-import { ReactComponent as KnowledgeOffIcon } from "@/assets/icons/Info/Info_off.svg";
-import { ReactComponent as KnowledgeONIcon } from "@/assets/icons/Info/Info_on.svg";
-import { ReactComponent as MyPageIcon } from "@/assets/icons/Profile/Profile.svg";
-import { NAV_LIST, NAV_URL_LIST } from "@/components/Common/Navbar/navigation";
+import { ReactComponent as HomeOffIcon } from '@/assets/icons/Home/Home_off.svg';
+import { ReactComponent as HomeOnIcon } from '@/assets/icons/Home/Home_on.svg';
+import { ReactComponent as BadgeOffIcon } from '@/assets/icons/Badge/Badge_off.svg';
+import { ReactComponent as BadgeOnIcon } from '@/assets/icons/Badge/Badge_on.svg';
+import { ReactComponent as KnowledgeOffIcon } from '@/assets/icons/Info/Info_off.svg';
+import { ReactComponent as KnowledgeONIcon } from '@/assets/icons/Info/Info_on.svg';
+import { ReactComponent as MyPageIcon } from '@/assets/icons/Profile/Profile.svg';
+import { NAV_LIST, NAV_URL_LIST } from '@/components/Common/Navbar/navigation';
 
 interface NavItemType {
   label: string;
@@ -18,7 +18,7 @@ interface NavItemType {
 
 export const NAV_INFO = {
   [NAV_LIST.HOME]: {
-    label: "홈",
+    label: '홈',
     url: NAV_URL_LIST.HOME,
     icon: {
       active: HomeOnIcon,
@@ -26,7 +26,7 @@ export const NAV_INFO = {
     },
   },
   [NAV_LIST.BADGE]: {
-    label: "활동 배지",
+    label: '활동 배지',
     url: NAV_URL_LIST.BADGE,
     icon: {
       active: BadgeOnIcon,
@@ -34,7 +34,7 @@ export const NAV_INFO = {
     },
   },
   [NAV_LIST.KNOWLEDGE]: {
-    label: "안전 지식",
+    label: '안전 지식',
     url: NAV_URL_LIST.KNOWLEDGE,
     icon: {
       active: KnowledgeONIcon,
@@ -42,7 +42,7 @@ export const NAV_INFO = {
     },
   },
   [NAV_LIST.MY_PAGE]: {
-    label: "마이 페이지",
+    label: '마이 페이지',
     url: NAV_URL_LIST.MY_PAGE,
     icon: {
       active: MyPageIcon,

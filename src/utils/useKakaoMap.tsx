@@ -26,9 +26,9 @@ const useKakaoMap = () => {
   const { kakao } = window as any;
 
   // 디바이스의 현재 좌표
-  //const { latitude, longitude, isLoaded: positionLoaded } = useGeolocation();
-  const { isLoaded: positionLoaded } = useGeolocation();
-  const [latitude, longitude] = [37.4979462867, 126.9226290334];
+  const { latitude, longitude, isLoaded: positionLoaded } = useGeolocation();
+  //const { isLoaded: positionLoaded } = useGeolocation();
+  //const [latitude, longitude] = [37.4979462867, 126.9226290334];
 
   // 1. Map 생성하기
   const createMap = () => {

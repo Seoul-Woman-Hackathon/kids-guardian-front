@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { BADGE_INFO } from './badgeInfo';
+import { useState } from "react";
+import { BADGE_INFO } from "./badgeInfo";
 
-import * as styles from './BadgeContent.style';
+import * as styles from "./BadgeContent.style";
 
 const BadgeContent = ({ count }: { count: number }) => {
   console.log(count);
@@ -21,7 +21,7 @@ const BadgeContent = ({ count }: { count: number }) => {
         {dressedBadge.map((idx: number) => (
           <styles.BadgeImage src={BADGE_INFO[idx].image} idx={idx} />
         ))}
-        <img src={'src/assets/character.png'} />
+        <img src="https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/Cat.svg" />
       </styles.CharacterContainer>
       <styles.Line />
       <styles.SubTitle>내가 받은 배지</styles.SubTitle>

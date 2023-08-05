@@ -44,7 +44,7 @@ export const ImageLandContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 780px;
+  height: 100vh;
   gap: 62px;
 `;
 export const OnboardingImage = styled.img<OnboardingImageProps>`
@@ -53,6 +53,7 @@ export const OnboardingImage = styled.img<OnboardingImageProps>`
   width: 300px;
   height: 390px;
   z-index: 3;
+  bottom: -80px;
 `;
 
 export const Message = styled.div`

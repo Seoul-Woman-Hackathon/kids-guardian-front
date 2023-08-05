@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import * as styles from './CrossWalkAlarm.style';
-import { useRecoilValue } from 'recoil';
-import { crossWalkAtom } from '@/states/accidentRegionAtom';
-import CrossWalkLockAlarm from '../CrossWalkLockAlarm';
+import { useEffect, useState } from "react";
+import * as styles from "./CrossWalkAlarm.style";
+import { useRecoilValue } from "recoil";
+import { crossWalkAtom } from "@/states/accidentRegionAtom";
+import CrossWalkLockAlarm from "../CrossWalkLockAlarm";
 
 const CrossWalkAlarm = () => {
   const [startBlockingClick, setStartBlockingClick] = useState(false);
@@ -11,6 +11,12 @@ const CrossWalkAlarm = () => {
   const onTouchStart = () => {
     setStartBlockingClick(true);
   };
+
+  //   const onTouchEnd = () => {
+  //     setTimeout(() => {
+  //       setOnClick(false);
+  //     }, 800);
+  //   };
 
   useEffect(() => {
     if (!isNearCrossWalk) {

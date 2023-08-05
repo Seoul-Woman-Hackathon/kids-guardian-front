@@ -26,6 +26,7 @@ export const Header = styled.div`
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 11;
   /*height: 100px; Adjust this height according to your design*/
   display: flex;
   align-items: center;

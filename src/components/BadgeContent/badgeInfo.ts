@@ -51,6 +51,7 @@ export const BADGE_STYLE = [
     transform: 'rotate(-24.288deg)',
     //top: 70,
     //left: 93,
+    display: 'none',
   },
   {
     transform: 'rotate(-10.168deg)',

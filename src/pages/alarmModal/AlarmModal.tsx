@@ -5,6 +5,7 @@ import { useRecoilValue } from 'recoil';
 import * as styles from './AlarmModal.style';
 import { useEffect, useState } from 'react';
 import CrossWalkAlarm from '@/components/CrossWalkAlarm';
+import AlarmFinishContent from '@/components/AlarmFinishContent';
 
 const AlarmModal = () => {
   const { in_accident_region } = useRecoilValue(accidentRegionAtom);
@@ -12,6 +13,7 @@ const AlarmModal = () => {
 
   const [isShowAlarmPreview, setIsShowAlarmPreview] = useState(false);
   const [isShowCrossWalkAlarm, setIsShowCrossWalkAlarm] = useState(false);
+  const [isShowAlarmFinish, setIsShowAlarmFinish] = useState(false);
 
   console.log(isShowAlarmPreview, isShowCrossWalkAlarm);
 
@@ -29,9 +31,18 @@ const AlarmModal = () => {
   }, [in_accident_region]);
 
   useEffect(() => {
+    let tId: number;
     if (isNearCrossWalk) {
       setIsShowCrossWalkAlarm(true);
+    } else {
+      setIsShowCrossWalkAlarm(false);
+      setIsShowAlarmFinish(true);
+
+      tId = setTimeout(() => {
+        setIsShowAlarmFinish(false);
+      }, 3000);
     }
+    return () => clearTimeout(tId);
   }, [isNearCrossWalk]);
 
   return isShowAlarmPreview ? (
@@ -41,6 +52,10 @@ const AlarmModal = () => {
   ) : isShowCrossWalkAlarm ? (
     <styles.Modal>
       <CrossWalkAlarm />
+    </styles.Modal>
+  ) : isShowAlarmFinish ? (
+    <styles.Modal>
+      <AlarmFinishContent />
     </styles.Modal>
   ) : (
     <></>

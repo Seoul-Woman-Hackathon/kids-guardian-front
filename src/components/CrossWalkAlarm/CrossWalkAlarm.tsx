@@ -10,6 +10,7 @@ const CrossWalkAlarm = () => {
 
   const onTouchStart = () => {
     setStartBlockingClick(true);
+    console.log('??');
   };
 
   //   const onTouchEnd = () => {
@@ -25,7 +26,7 @@ const CrossWalkAlarm = () => {
   }, [isNearCrossWalk]);
 
   return (
-    <styles.Container onTouchStart={onTouchStart}>
+    <styles.Container onClick={onTouchStart}>
       <styles.Message>
         <styles.MessageText>손을 번쩍 들어!</styles.MessageText>
       </styles.Message>

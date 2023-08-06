@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { BADGE_INFO } from "./badgeInfo";
+import { useState } from 'react';
+import { BADGE_INFO } from './badgeInfo';
 
-import * as styles from "./BadgeContent.style";
+import * as styles from './BadgeContent.style';
 
 const BadgeContent = ({ count }: { count: number }) => {
   console.log(count);
@@ -25,8 +25,8 @@ const BadgeContent = ({ count }: { count: number }) => {
         <img
           src={
             dressedBadge.includes(3)
-              ? "https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/turtleCat.svg"
-              : "https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/Cat.svg"
+              ? 'https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/turtleCat.svg'
+              : 'https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/Cat.svg'
           }
         />
       </styles.CharacterContainer>

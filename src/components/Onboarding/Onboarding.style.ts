@@ -40,20 +40,17 @@ export const Rect2 = styled.div`
 `;
 
 export const ImageLandContainer = styled.div`
-  position: absolute;
   display: flex;
   justify-content: center;
   width: 100%;
   height: 100vh;
-  gap: 62px;
 `;
 export const OnboardingImage = styled.img<OnboardingImageProps>`
   position: relative;
   content: url(${(props) => props.url});
   width: 300px;
-  height: 390px;
+  height: 500px;
   z-index: 3;
-  bottom: -80px;
 `;
 
 export const Message = styled.div`

@@ -51,6 +51,9 @@ export const OnboardingImage = styled.img<OnboardingImageProps>`
   width: 300px;
   height: 500px;
   z-index: 3;
+  @media (min-width: 320px) {
+    bottom: 220px;
+  }
   @media (min-width: 375px) {
     bottom: 150px;
   }
@@ -59,7 +62,8 @@ export const OnboardingImage = styled.img<OnboardingImageProps>`
   }
 
   @media (min-width: 414px) {
-    bottom: -80px;
+    /* bottom: -80px; */
+    bottom: 90px;
   }
   @media (min-width: 694px) {
     bottom: 60px;

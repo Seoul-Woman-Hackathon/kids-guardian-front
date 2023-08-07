@@ -1,3 +1,4 @@
+
 import { useNavigate } from "react-router-dom";
 import LoginButton from "../Common/Button/Login/LoginButton";
 import * as styles from "./Login.style";
@@ -23,4 +24,5 @@ const Login = () => {
     </styles.Container>
   );
 };
+
 export default Login;

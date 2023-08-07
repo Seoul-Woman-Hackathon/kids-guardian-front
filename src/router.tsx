@@ -14,6 +14,7 @@ import TestPage from "./pages/test/TestPage";
 import Onboarding from "./components/Onboarding/Onboarding";
 import KnowledgePage from "./pages/knowledge";
 import KnowledgeDetail from "./components/Knowledge/KnowledgeDetail";
+
 import LoginPage from "./pages/Login";
 
 const Routes: RouteObject[] = [

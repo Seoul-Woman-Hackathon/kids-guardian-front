@@ -37,10 +37,19 @@ export const Rect2 = styled.div`
   z-index: 2;
 `;
 
+
+export const ImageLandContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+`;
+
 export const OnboardingImage = styled.img<OnboardingImageProps>`
   position: absolute;
   content: url(${(props) => props.url});
   width: 300px;
+
   height: 400px;
   z-index: 3;
   /* bottom: 300px; */
@@ -65,6 +74,7 @@ export const OnboardingImage = styled.img<OnboardingImageProps>`
     width: 100px;
     height: 200px;
   }
+
 `;
 
 export const Message = styled.div`

@@ -51,6 +51,7 @@ export const OnboardingImage = styled.img<OnboardingImageProps>`
   width: 300px;
   height: 500px;
   z-index: 3;
+
   @media (min-width: 320px) {
     bottom: 220px;
   }
@@ -72,6 +73,7 @@ export const OnboardingImage = styled.img<OnboardingImageProps>`
   @media (min-width: 1024px) {
     bottom: -200px;
   }
+
 `;
 
 export const Message = styled.div`

@@ -22,13 +22,11 @@ const Onboarding = () => {
   return (
     <>
       <styles.Container>
-        <styles.ImageLandContainer>
-          <styles.OnboardingImage url={ONBOARDING_INFO[step].image} />
-          <styles.RectContainer>
-            <styles.Rect2 />
-            <styles.Rect1 />
-          </styles.RectContainer>
-        </styles.ImageLandContainer>
+        <styles.OnboardingImage url={ONBOARDING_INFO[step].image} />
+        <styles.RectContainer>
+          <styles.Rect2 />
+          <styles.Rect1 />
+        </styles.RectContainer>
         <styles.MessageContainer>
           <styles.Message>
             <styles.MessageText>

@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
-import COLORS from "@styles/constants/colors";
-import TEXT_STYLES from "@styles/constants/textStyles";
+import styled from '@emotion/styled';
+import COLORS from '@styles/constants/colors';
+import TEXT_STYLES from '@styles/constants/textStyles';
 
 interface OnboardingImageProps {
   url: string;
@@ -37,7 +37,6 @@ export const Rect2 = styled.div`
   z-index: 2;
 `;
 
-
 export const ImageLandContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -52,8 +51,11 @@ export const OnboardingImage = styled.img<OnboardingImageProps>`
 
   height: 400px;
   z-index: 3;
-  /* bottom: 300px; */
-  vertical-align: bottom;
+
+  left: calc(50% - 150px);
+  bottom: 370px;
+
+  /*vertical-align: bottom;
   @media (max-height: 896px) {
     width: 400px;
     height: 550px;
@@ -73,8 +75,7 @@ export const OnboardingImage = styled.img<OnboardingImageProps>`
   @media (max-height: 552px) {
     width: 100px;
     height: 200px;
-  }
-
+  }*/
 `;
 
 export const Message = styled.div`

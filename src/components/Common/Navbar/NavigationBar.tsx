@@ -12,13 +12,14 @@ const NavigationBar = ({ focusType }: NavigationBarProps) => {
       <styles.Navigation>
         <NavItem type={NAV_LIST.HOME} isFocused={focusType === NAV_LIST.HOME} />
         <NavItem
-          type={NAV_LIST.BADGE}
-          isFocused={focusType === NAV_LIST.BADGE}
-        />
-        <NavItem
           type={NAV_LIST.KNOWLEDGE}
           isFocused={focusType === NAV_LIST.KNOWLEDGE}
         />
+        <NavItem
+          type={NAV_LIST.BADGE}
+          isFocused={focusType === NAV_LIST.BADGE}
+        />
+
         <NavItem
           type={NAV_LIST.MY_PAGE}
           isFocused={focusType === NAV_LIST.MY_PAGE}

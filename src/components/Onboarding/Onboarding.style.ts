@@ -7,12 +7,12 @@ interface OnboardingImageProps {
 }
 
 export const Container = styled.div`
-  position: absolute;
+  position: relative;
   display: flex;
   background: #ebfaff;
   justify-content: center;
-  align-items: center;
-  width: 100%;
+  align-items: flex-start;
+  width: 100vw;
   height: 100vh;
 `;
 export const RectContainer = styled.div`
@@ -24,7 +24,6 @@ export const RectContainer = styled.div`
   height: 400px;
 `;
 export const Rect1 = styled.div`
-  position: absolute;
   height: 350px;
   width: 100%;
   bottom: 0;
@@ -32,28 +31,50 @@ export const Rect1 = styled.div`
   z-index: 1;
 `;
 export const Rect2 = styled.div`
-  position: absolute;
   width: 100%;
   height: 50px;
   background: #e7e3dd;
   z-index: 2;
 `;
 
+
 export const ImageLandContainer = styled.div`
-  position: absolute;
   display: flex;
   justify-content: center;
   width: 100%;
   height: 100vh;
-  gap: 62px;
 `;
+
 export const OnboardingImage = styled.img<OnboardingImageProps>`
-  position: relative;
+  position: absolute;
   content: url(${(props) => props.url});
   width: 300px;
-  height: 390px;
+
+  height: 400px;
   z-index: 3;
-  bottom: -80px;
+  /* bottom: 300px; */
+  vertical-align: bottom;
+  @media (max-height: 896px) {
+    width: 400px;
+    height: 550px;
+  }
+  @media (max-height: 844px) {
+    width: 350px;
+    height: 450px;
+  }
+  @media (max-height: 740px) {
+    width: 300px;
+    height: 400px;
+  }
+  @media (max-height: 667px) {
+    width: 250px;
+    height: 350px;
+  }
+  @media (max-height: 552px) {
+    width: 100px;
+    height: 200px;
+  }
+
 `;
 
 export const Message = styled.div`

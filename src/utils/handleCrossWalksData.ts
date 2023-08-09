@@ -25,15 +25,15 @@ export const isLocatedNearCrossWalk = (
       crossWalks[i].longitude,
     );
 
-    if (dist <= 20) {
+    if (dist <= 0.0002) {
       nearByUser = true;
-      (targetCrossWalk[0] = crossWalks[i].latitude),
-        (targetCrossWalk[1] = crossWalks[i].longitude);
+      targetCrossWalk[0] = crossWalks[i].latitude;
+      targetCrossWalk[1] = crossWalks[i].longitude;
 
       return;
     }
 
-    return [nearByUser, targetCrossWalk];
+    return { nearByUser, targetCrossWalk };
   }
 };
 
@@ -52,7 +52,7 @@ export const isFarFromCrossWalk = (
     crossWalkLongitude,
   );
 
-  if (dist > 20) {
+  if (dist > 0.0002) {
     isFar = true;
   }
 

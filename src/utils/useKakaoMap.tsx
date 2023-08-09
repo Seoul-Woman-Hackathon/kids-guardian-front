@@ -46,7 +46,7 @@ const useKakaoMap = () => {
   // 2. 현재 유저 위치에 표시할 마커 생성하기
   const createUserMarker = useCallback(() => {
     const markerImage = new kakao.maps.MarkerImage(
-      '/userMarkerIcon.svg',
+      'https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/Marker.svg',
       new kakao.maps.Size(54, 64),
       { offset: new kakao.maps.Point(27, 69) },
     );
@@ -181,16 +181,14 @@ const useKakaoMap = () => {
     let targetLat = null;
     let targetLon = null;
     if (in_accident_region) {
-      const [nearByUser, targetCrossWalk]: any = isLocatedNearCrossWalk(
-        latitude,
-        longitude,
-        traffic_lights,
-      );
+      const res = isLocatedNearCrossWalk(latitude, longitude, traffic_lights);
 
-      if (nearByUser) {
+      if (res?.nearByUser) {
         setCrossWalkAtom({ isNearCrossWalk: true });
-        targetLat = targetCrossWalk[0];
-        targetLon = targetCrossWalk[1];
+        targetLat = res.targetCrossWalk[0];
+        targetLon = res.targetCrossWalk[1];
+      } else {
+        setCrossWalkAtom({ isNearCrossWalk: false });
       }
     }
 

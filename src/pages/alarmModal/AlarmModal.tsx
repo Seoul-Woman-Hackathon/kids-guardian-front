@@ -25,6 +25,7 @@ const AlarmModal = () => {
         setIsShowAlarmPreview(false);
       }, 3000);
     }
+
     return () => clearTimeout(timeoutId);
   }, [in_accident_region]);
 
@@ -34,6 +35,17 @@ const AlarmModal = () => {
       setIsShowCrossWalkAlarm(true);
     } else {
       setIsShowCrossWalkAlarm(false);
+      tId = setTimeout(() => {
+        setIsShowAlarmFinish(false);
+      }, 3000);
+    }
+    return () => clearTimeout(tId);
+  }, [isNearCrossWalk]);
+
+  useEffect(() => {
+    let tId: number;
+
+    if (isShowCrossWalkAlarm && !isShowAlarmFinish) {
       setIsShowAlarmFinish(true);
 
       tId = setTimeout(() => {
@@ -41,7 +53,7 @@ const AlarmModal = () => {
       }, 3000);
     }
     return () => clearTimeout(tId);
-  }, [isNearCrossWalk]);
+  }, [isShowCrossWalkAlarm]);
 
   return isShowAlarmPreview ? (
     <styles.Modal>

@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import COLORS from "@styles/constants/colors";
+import styled from '@emotion/styled';
+import COLORS from '@styles/constants/colors';
 export const HeaderContainer = styled.div`
   position: fixed;
   top: 0;

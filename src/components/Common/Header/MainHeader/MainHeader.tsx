@@ -1,4 +1,4 @@
-import * as styles from "./MainHeader.style";
+import * as styles from './MainHeader.style';
 
 const MainHeader = () => {
   return (

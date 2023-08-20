@@ -24,20 +24,6 @@ export const InputContainer = styled.div`
   flex-direction: column;
   gap: 14px;
 `;
-export const Input = styled.input`
-  width: 340px;
-  height: 60px;
-  background: #f0eeeb;
-  border: none;
-  border-radius: 10px;
-  outline: none;
-  padding: 20px;
-
-  &::placeholder {
-    ${TEXT_STYLES.Body1}
-    color:#8F8C88;
-  }
-`;
 
 export const ButtonContainer = styled.div`
   display: flex;

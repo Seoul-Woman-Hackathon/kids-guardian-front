@@ -9,6 +9,7 @@ export const SignUpButtonContainer = styled.div`
   background-color: ${COLORS.grayscale.white};
   border: 2.5px solid #ffd12d;
   border-radius: 14px;
+  width: 340px;
 `;
 export const LoginButtonText = styled.div`
   text-align: center;

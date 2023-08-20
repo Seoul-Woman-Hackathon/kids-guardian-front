@@ -14,7 +14,9 @@ import TestPage from "./pages/test/TestPage";
 import Onboarding from "./components/Onboarding/Onboarding";
 import KnowledgePage from "./pages/knowledge";
 import KnowledgeDetail from "./components/Knowledge/KnowledgeDetail";
+
 import LoginPage from "./pages/Login";
+import SignUpPage from "./pages/signUp";
 
 const Routes: RouteObject[] = [
   {
@@ -74,6 +76,10 @@ const Routes: RouteObject[] = [
   {
     path: "/login",
     element: <LoginPage />,
+  },
+  {
+    path: "/signUp",
+    element: <SignUpPage />,
   },
 ];
 

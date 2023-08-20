@@ -45,7 +45,6 @@ const useGeolocation = () => {
       ...prev,
       error,
     }));
-    console.error(error.message);
   }, []);
 
   const clearWatch = () => {

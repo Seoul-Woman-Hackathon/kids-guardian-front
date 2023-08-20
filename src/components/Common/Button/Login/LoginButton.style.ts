@@ -9,6 +9,7 @@ export const LoginButtonContainer = styled.div`
   padding: 10px 140px;
   background-color: ${COLORS.main.primary};
   border-radius: 14px;
+  width: 340px;
 `;
 export const LoginButtonText = styled.div`
   text-align: center;

@@ -1,10 +1,11 @@
-import AlarmPreview from '@/components/AlarmPreview';
-import { accidentRegionAtom, crossWalkAtom } from '@/states/accidentRegionAtom';
-import { useRecoilValue } from 'recoil';
+import { useEffect, useState } from "react";
+import { accidentRegionAtom, crossWalkAtom } from "@/states/accidentRegionAtom";
+import { useRecoilValue } from "recoil";
 
-import * as styles from './AlarmModal.style';
-import { useEffect, useState } from 'react';
-import CrossWalkAlarm from '@/components/CrossWalkAlarm';
+import * as styles from "./AlarmModal.style";
+import CrossWalkAlarm from "@/components/CrossWalkAlarm";
+import AlarmPreview from "@/components/AlarmPreview";
+import AlarmFinishContent from "@/components/AlarmFinishContent";
 
 const AlarmModal = () => {
   const { in_accident_region } = useRecoilValue(accidentRegionAtom);
@@ -12,8 +13,7 @@ const AlarmModal = () => {
 
   const [isShowAlarmPreview, setIsShowAlarmPreview] = useState(false);
   const [isShowCrossWalkAlarm, setIsShowCrossWalkAlarm] = useState(false);
-
-  console.log(isShowAlarmPreview, isShowCrossWalkAlarm);
+  const [isShowAlarmFinish, setIsShowAlarmFinish] = useState(false);
 
   useEffect(() => {
     let timeoutId: number;
@@ -25,14 +25,35 @@ const AlarmModal = () => {
         setIsShowAlarmPreview(false);
       }, 3000);
     }
+
     return () => clearTimeout(timeoutId);
   }, [in_accident_region]);
 
   useEffect(() => {
+    let tId: number;
     if (isNearCrossWalk) {
       setIsShowCrossWalkAlarm(true);
+    } else {
+      setIsShowCrossWalkAlarm(false);
+      tId = setTimeout(() => {
+        setIsShowAlarmFinish(false);
+      }, 3000);
     }
+    return () => clearTimeout(tId);
   }, [isNearCrossWalk]);
+
+  useEffect(() => {
+    let tId: number;
+
+    if (isShowCrossWalkAlarm && !isShowAlarmFinish) {
+      setIsShowAlarmFinish(true);
+
+      tId = setTimeout(() => {
+        setIsShowAlarmFinish(false);
+      }, 3000);
+    }
+    return () => clearTimeout(tId);
+  }, [isShowCrossWalkAlarm]);
 
   return isShowAlarmPreview ? (
     <styles.Modal>
@@ -41,6 +62,10 @@ const AlarmModal = () => {
   ) : isShowCrossWalkAlarm ? (
     <styles.Modal>
       <CrossWalkAlarm />
+    </styles.Modal>
+  ) : isShowAlarmFinish ? (
+    <styles.Modal>
+      <AlarmFinishContent />
     </styles.Modal>
   ) : (
     <></>

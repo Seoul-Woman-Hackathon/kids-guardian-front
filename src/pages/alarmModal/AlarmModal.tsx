@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
-import { accidentRegionAtom, crossWalkAtom } from '@/states/accidentRegionAtom';
-import { useRecoilValue } from 'recoil';
+import { useEffect, useState } from "react";
+import { accidentRegionAtom, crossWalkAtom } from "@/states/accidentRegionAtom";
+import { useRecoilValue } from "recoil";
 
-import * as styles from './AlarmModal.style';
-import CrossWalkAlarm from '@/components/CrossWalkAlarm';
-import AlarmPreview from '@/components/AlarmPreview';
-import AlarmFinishContent from '@/components/AlarmFinishContent';
+import * as styles from "./AlarmModal.style";
+import CrossWalkAlarm from "@/components/CrossWalkAlarm";
+import AlarmPreview from "@/components/AlarmPreview";
+import AlarmFinishContent from "@/components/AlarmFinishContent";
 
 const AlarmModal = () => {
   const { in_accident_region } = useRecoilValue(accidentRegionAtom);

@@ -1,4 +1,3 @@
-
 import styled from "@emotion/styled";
 import TEXT_STYLES from "@styles/constants/textStyles";
 
@@ -24,20 +23,6 @@ export const InputContainer = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 14px;
-`;
-export const Input = styled.input`
-  width: 340px;
-  height: 60px;
-  background: #f0eeeb;
-  border: none;
-  border-radius: 10px;
-  outline: none;
-  padding: 20px;
-
-  &::placeholder {
-    ${TEXT_STYLES.Body1}
-    color:#8F8C88;
-  }
 `;
 
 export const ButtonContainer = styled.div`

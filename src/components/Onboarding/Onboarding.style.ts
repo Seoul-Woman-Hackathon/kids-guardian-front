@@ -1,6 +1,6 @@
-import styled from '@emotion/styled';
-import COLORS from '@styles/constants/colors';
-import TEXT_STYLES from '@styles/constants/textStyles';
+import styled from "@emotion/styled";
+import COLORS from "@styles/constants/colors";
+import TEXT_STYLES from "@styles/constants/textStyles";
 
 interface OnboardingImageProps {
   url: string;
@@ -51,33 +51,15 @@ export const OnboardingImage = styled.img<OnboardingImageProps>`
 
   height: 400px;
   z-index: 3;
+  /* bottom: 300px; */
+  vertical-align: bottom;
+
+  height: 400px;
+  z-index: 3;
 
   left: calc(50% - 150px);
   bottom: 370px;
-
-  /*vertical-align: bottom;
-  @media (max-height: 896px) {
-    width: 400px;
-    height: 550px;
-  }
-  @media (max-height: 844px) {
-    width: 350px;
-    height: 450px;
-  }
-  @media (max-height: 740px) {
-    width: 300px;
-    height: 400px;
-  }
-  @media (max-height: 667px) {
-    width: 250px;
-    height: 350px;
-  }
-  @media (max-height: 552px) {
-    width: 100px;
-    height: 200px;
-  }*/
 `;
-
 export const Message = styled.div`
   width: 340px;
   height: 180px;
